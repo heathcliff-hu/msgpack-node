@@ -46,7 +46,7 @@ exports.msgpack = {
   },
 //  'test unpacking a buffer' : function (test) {
 //    test.expect(1);
-//    var testBuffer = new Buffer([0x00, 0x01, 0x02]);
+//    var testBuffer = Buffer.from([0x00, 0x01, 0x02]);
 //    test.deepEqual(testBuffer, msgpack.unpack(msgpack.pack(testBuffer), true));
 //    test.done();
 //  },
@@ -196,7 +196,7 @@ exports.msgpack = {
     // Create two buffers full of packed data, 'b' and 'bb', with the latter
     // containing 3 extra bytes
     var b = msgpack.pack(o);
-    var bb = new Buffer(b.length + 3);
+    var bb = Buffer.alloc(b.length + 3);
     b.copy(bb, 0, 0, b.length);
 
     // Expect no remaining bytes when unpacking 'b'
